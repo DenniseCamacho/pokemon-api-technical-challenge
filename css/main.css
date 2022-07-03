@@ -2,3 +2,20 @@ html, body, main {
     background-color: darkgray;
     padding-bottom: 50px;
 }
+
+.divExerciseCSS1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divExerciseCSS2:nth-child(2n) {
+   background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divExerciseCSS2 {
+    width: 20%;
+    background-color: darkgrey;
+}
