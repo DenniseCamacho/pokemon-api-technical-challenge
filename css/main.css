@@ -3,19 +3,23 @@ html, body, main {
     padding-bottom: 50px;
 }
 
-.divExerciseCSS1 {
-    display: flex;
-    flex-wrap: wrap;
+.divExerciseCSS1html {
+    display: grid;
+    row-gap: 50px;
+    column-gap: 5px;
+    grid: repeat(10, 100px) / auto-flow 100px;
+    justify-content: center;
 }
 
-.divExerciseCSS2:nth-child(2n) {
+.divExerciseCSS2js:nth-child(2n) {
    background-color: pink;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.divExerciseCSS2 {
-    width: 20%;
+.divExerciseCSS2js {
+    /*width: 20%;*/
     background-color: darkgrey;
+
 }
