@@ -1,31 +1,18 @@
 "use strict";
 
-let showImage = {
-    doShowImage: (url) => {
-        const urlObjLinkInfo = url;
 
-        fetch(urlObjLinkInfo).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-           console.log(data.sprites.front_default);
-        }).catch(function (jqXhr, status, error) {
-            console.log(jqXhr);
-            console.log(status);
-            console.log(error);
-        });
-    }
-}
 let showData = {
     doShowData: (data) => {
         data.forEach((results, index, array) => {
            let theName = results.name;
            let url = results.url;
-           let idk = showImage.doShowImage(url);
            let element = document.getElementById('information01');
-           element.insertAdjacentHTML('beforeend', `
+             {
+                element.insertAdjacentHTML('beforeend', `
+           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png"><br>
            ${theName}<br>
-           <img src="${idk}"><br>
            `)
+            }
         });
 
     }
@@ -43,12 +30,32 @@ fetch(pokemonUrl).then(function (response) {
     // console.log(data.results[0].name);
     // console.log(data.results[0].url);
     showData.doShowData(data.results);
+    console.log(data);
 }).catch(function (jqXhr, status, error) {
     console.log(jqXhr);
     console.log(status);
     console.log(error);
 });
 
+
+function fetchMeThenLog(url) {
+
+    fetch(url).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        // console.log(data.results);
+        // console.log(data.results[0].name);
+        // console.log(data.results[0].url);
+        // showData.doShowData(data.results);
+        console.log(data);
+    }).catch(function (jqXhr, status, error) {
+        console.log(jqXhr);
+        console.log(status);
+        console.log(error);
+    });
+}
+fetchMeThenLog(pokemonUrl);
+fetchMeThenLog('https://pokeapi.co/api/v2/pokemon/1/');
 //
 //     //jQuery ajax req.
 //     //https://pokeapi.co/api/v2/pokemon/{id or name}/
