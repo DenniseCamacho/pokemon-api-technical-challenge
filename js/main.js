@@ -9,8 +9,10 @@ let showData = {
            let element = document.getElementById('information01');
              {
                 element.insertAdjacentHTML('beforeend', `
-           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png"><br>
-           ${theName}<br>
+           <div class="divExerciseCSS2">
+           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png">
+           ${theName}
+           </div>
            `)
             }
         });
@@ -30,7 +32,6 @@ fetch(pokemonUrl).then(function (response) {
     // console.log(data.results[0].name);
     // console.log(data.results[0].url);
     showData.doShowData(data.results);
-    console.log(data);
 }).catch(function (jqXhr, status, error) {
     console.log(jqXhr);
     console.log(status);
@@ -38,24 +39,24 @@ fetch(pokemonUrl).then(function (response) {
 });
 
 
-function fetchMeThenLog(url) {
-
-    fetch(url).then(function (response) {
-        return response.json();
-    }).then(function (data) {
-        // console.log(data.results);
-        // console.log(data.results[0].name);
-        // console.log(data.results[0].url);
-        // showData.doShowData(data.results);
-        console.log(data);
-    }).catch(function (jqXhr, status, error) {
-        console.log(jqXhr);
-        console.log(status);
-        console.log(error);
-    });
-}
-fetchMeThenLog(pokemonUrl);
-fetchMeThenLog('https://pokeapi.co/api/v2/pokemon/1/');
+// function fetchMeThenLog(url) {
+//
+//     fetch(url).then(function (response) {
+//         return response.json();
+//     }).then(function (data) {
+//         // console.log(data.results);
+//         // console.log(data.results[0].name);
+//         // console.log(data.results[0].url);
+//         // showData.doShowData(data.results);
+//         console.log(data);
+//     }).catch(function (jqXhr, status, error) {
+//         console.log(jqXhr);
+//         console.log(status);
+//         console.log(error);
+//     });
+// }
+// fetchMeThenLog(pokemonUrl);
+// fetchMeThenLog('https://pokeapi.co/api/v2/pokemon/1/');
 //
 //     //jQuery ajax req.
 //     //https://pokeapi.co/api/v2/pokemon/{id or name}/
