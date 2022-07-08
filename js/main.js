@@ -1,20 +1,20 @@
 "use strict";
-import {pokemonUrl} from "./urls.js";
-import {fetchMeThenLog} from "./notes";
+const POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon';
+const POKEMON_IMAGE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
 
 
 let showData = {
     doShowData: (data) => {
         data.forEach((results, index, array) => {
-           let theName = results.name;
-           let url = results.url;
-           let element = document.getElementById('information01');
-           // fetchMeThenLog(url);
-             {
+            let theName = results.name;
+            // let url = results.url;
+            let element = document.getElementById('information01');
+            // fetchMeThenLog(url);
+            {
                 element.insertAdjacentHTML('beforeend', `
            <div class="divExerciseCSS2js">
-           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png">
+           <img src="${POKEMON_IMAGE_URL}${index + 1}.png" alt="An image of the pokemon, ${theName}">
            ${theName}
            </div>
            `)
@@ -25,9 +25,7 @@ let showData = {
 }
 
 
-
-
-fetch(pokemonUrl).then(function (response) {
+fetch(POKEMON_URL).then(function (response) {
     return response.json();
 }).then(function (data) {
     // console.log(data.results);
